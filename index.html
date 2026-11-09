@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Qo'shtepa tumani  </title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="app-shell">
+        <main class="app-layout">
+            <section class="map-section">
+                <div class="map-switcher">
+                    <button class="map-type-btn active" data-map-type="street" onclick="changeMapType('street')" type="button">
+                        <span>🗺️</span>
+                        Oddiy xarita
+                    </button>
+
+                    <button class="map-type-btn" data-map-type="satellite" onclick="changeMapType('satellite')" type="button">
+                        <span>🛰️</span>
+                        Sun’iy yo‘ldosh
+                    </button>
+                </div>
+
+                <div id="map"></div>
+
+                <div class="map-badges">
+                    <div id="locationStatus">Joy tanlanmagan</div>
+
+                    <!-- <div class="coordinates">
+                        <p>Latitude: <span id="latitude">--</span></p>
+                        <p>Longitude: <span id="longitude">--</span></p>
+                    </div> -->
+                </div>
+
+                <aside class="floating-panel">
+                    <div class="lookup-tools">
+                        <div class="panel-header">
+                            <h3>Kadastr raqami bo'yicha bo‘yicha lokatsiya</h3>
+                        </div>
+
+                        <div class="lookup-row">
+                            <input id="cadastralInput" type="text" placeholder="Masalan: 1234-01-001-..." autocomplete="off">
+                            <button id="cadastralSearchBtn" type="button" class="primary-btn">Qidirish</button>
+                        </div>
+
+                        <div class="lookup-row stacked">
+                            <input type="file" id="kmzInput" accept=".kmz,application/vnd.google-earth.kmz" hidden>
+                            <button id="selectKmzBtn" type="button" class="secondary-btn">KMZ fayl yuklash</button>
+                        </div>
+                    </div>
+                    <div class="panel-header">
+                        <h3>Lokatsiya va rasm</h3>
+                    </div>
+
+                    <div class="panel-actions">
+                        <input type="file" id="imageInput" accept="image/jpeg,image/png,image/webp" hidden>
+                        <button id="selectImage" type="button" class="primary-btn">Rasm tanlash</button>
+                        <button id="downloadBtn" type="button" class="secondary-btn" disabled>GPS bilan JPG yuklab olish</button>
+                    </div>
+
+                    <div class="panel-actions secondary-stack">
+                        <button id="replaceOriginalBtn" type="button" class="secondary-btn" disabled> Xotiraga kerakli joyga saqlash </button>
+                    </div>
+
+                    <div class="coord-grid">
+                        <label>
+                            <span>Latitude</span>
+                            <input id="latitudeInput" type="number" step="0.000001" placeholder="41.311111">
+                        </label>
+
+                        <label>
+                            <span>Longitude</span>
+                            <input id="longitudeInput" type="number" step="0.000001" placeholder="69.240000">
+                        </label>
+                    </div>
+                    <div class="canvas-wrap">
+                        <canvas id="photoCanvas" width="800" height="600"></canvas>
+                        <div id="emptyState">Rasm tanlang</div>
+                    </div>
+                </aside>
+            </section>
+        </main>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/piexifjs@1.0.4/piexif.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jszip@3.10.1/dist/jszip.min.js"></script>
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script src="js/map.js"></script>
+    <script src="js/editor.js"></script>
+    <script src="js/app.js"></script>
+</body>
+</html>
